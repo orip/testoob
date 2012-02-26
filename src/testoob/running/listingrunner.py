@@ -27,6 +27,7 @@ class ListingRunner(BaseRunner):
 
     def run(self, fixture):
         self.history.record_fixture(fixture.get_fixture())
+        return True # test has 'passed', otherwise --stop-on-fail stops here
 
     def done(self):
         if self.output_format == None:
