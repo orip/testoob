@@ -164,7 +164,7 @@ for test_name in all_test_names:
 
 class CaseDifferentTestNameSignatures(unittest.TestCase):
     def checkSomething(self): pass
-    def numericalTest(self): pass
+    def numericalFooTest(self): pass
 
 def _interrupt_self():
     # simulate Ctrl-C being pressed

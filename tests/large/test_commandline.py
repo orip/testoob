@@ -108,7 +108,7 @@ OK
 ^======================================================================
 FAIL: testFailure \(.*suites\.CaseFailure\.testFailure\)
 ----------------------------------------------------------------------
-.*AssertionError
+.*AssertionError.*
 
 Failed 1 tests
  - testFailure \(suites\.CaseFailure\)
@@ -165,7 +165,7 @@ testJ \(.*suites\.CaseLetters\.testJ\) \.\.\. OK
     def testLaunchingPdb(self):
         self._check_pdb_run(
             options=["--debug"],
-            pdb_message=r"raise self\.failureException, msg",
+            pdb_message=r"raise self\.failureException.*msg",
         )
 
     def testRerunOnFail(self):
@@ -434,7 +434,7 @@ RuntimeError
 FAIL: testFailure \(suites\.CaseMixed\.testFailure\)
 ----------------------------------------------------------------------
 .*
-AssertionError
+AssertionError.*
 
 Erred 1 tests
  - testError \(suites\.CaseMixed\)
@@ -498,7 +498,7 @@ Erroring\.\.\.
 FAIL: testFailure \(suites\.CaseVerbous\.testFailure\)
 ----------------------------------------------------------------------
 .*
-AssertionError
+AssertionError.*
 ======================================================================
 Run's output
 ----------------------------------------------------------------------
@@ -534,7 +534,7 @@ F
 FAIL: testFailure \(suites\.CaseVerbous\.testFailure\)
 ----------------------------------------------------------------------
 .*
-AssertionError
+AssertionError.*
 ======================================================================
 Run's output
 ----------------------------------------------------------------------
@@ -620,7 +620,7 @@ FAILED \(failures=1, errors=1\)
         )
     def testTestMethodRegex(self):
         testoob.testing.command_line(
-                _testoob_args(options=["--test-method-regex=Test$"],
+                _testoob_args(options=["--test-method-regex=FooTest$"],
                               tests=["CaseDifferentTestNameSignatures"]),
                 expected_error_regex="Ran 1 test.*OK",
                 expected_rc=0,
@@ -736,7 +736,7 @@ FAILED \(failures=1, errors=1\)
                     options=["--profiler=" + profiler_name, "--profdata=" + stats_filename],
                     tests=[test_case]),
                 rc_predicate=rc_predicate,
-                expected_output_regex="[0-9]+ function calls.*in [0-9.]+ CPU seconds",
+                expected_output_regex="[0-9]+ function calls.*in [0-9.]+ .*seconds",
                 skip_check = _missing_modules_skip_check,
             )
         finally:
